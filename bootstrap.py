@@ -42,7 +42,7 @@ if options.version is not None:
 else:
     VERSION = ''
 
-USE_DISTRIBUTE = True
+USE_DISTRIBUTE = False
 args = args + ['bootstrap']
 
 to_reload = False
@@ -67,15 +67,8 @@ except ImportError:
     else:
         import pkg_resources
 
-if sys.platform == 'win32':
-    def quote(c):
-        if ' ' in c:
-            return '"%s"' % c # work around spawn lamosity on windows
-        else:
-            return c
-else:
-    def quote (c):
-        return c
+def quote (c):
+    return c
 
 cmd = 'from setuptools.command.easy_install import main; main()'
 ws  = pkg_resources.working_set

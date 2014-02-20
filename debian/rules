@@ -53,6 +53,7 @@ install-website:
 	mkdir -p $(DEBIANCORE)/home/gdw/$(PACKAGE)/parts
 	find ${BUILDDIR}/bin -executable -type f -exec sed -i s%${BUILDDIR}%${INSTALLDIR}%g {} \;
 	sed -i s%${BUILDDIR}%${INSTALLDIR}%g ${BUILDDIR}/bin/instance
+	mkdir -p ${BUILDDIR}/parts/instance/bin/
 	cp ${BUILDDIR}/bin/zopepy ${BUILDDIR}/parts/instance/bin/interpreter
 	sed -i s%${BUILDDIR}%${INSTALLDIR}%g ${BUILDDIR}/parts/instance/bin/interpreter
 	sed -i s%${BUILDDIR}%${INSTALLDIR}%g ${BUILDDIR}/parts/instance/etc/zope.conf

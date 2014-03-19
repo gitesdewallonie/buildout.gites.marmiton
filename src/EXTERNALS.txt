@@ -1,5 +1,0 @@
-#
-# update with: svn propset svn:externals -F ./EXTERNALS.txt .
-#
-gdwmp.core http://svn.affinitic.be/plone/gites/gdwmp.core/trunk/
-gdwmp.skin http://svn.affinitic.be/plone/gites/gdwmp.skin/trunk/

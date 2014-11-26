@@ -32,7 +32,7 @@ build:
 	rm -f $(BUILDDIR)/buildout.cfg
 	mkdir -p $(BUILDDIR)/eggs
 	cd $(BUILDDIR) && ln -s base.cfg buildout.cfg
-	cd $(BUILDDIR) && bin/python bootstrap.py buildout:eggs-directory=$(BUILDDIR)/eggs
+	cd $(BUILDDIR) && bin/python bootstrap.py -v 2.2.1 buildout:eggs-directory=$(BUILDDIR)/eggs
 	cd $(BUILDDIR) && bin/buildout -c buildout.cfg buildout:eggs-directory=$(BUILDDIR)/eggs
 	echo $(DEBIANCORE)
 	touch build-stamp

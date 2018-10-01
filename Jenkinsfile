@@ -1,9 +1,11 @@
 node()
 {
 
-   checkout scm
-
-   sh "rm -f *.deb"
-   sh "make deb"
-   sh "make publish-deb"
+  stage checkout
+  checkout scm
+  sh "rm -f *.deb"
+  stage build
+  sh "make deb"
+  stage publish
+  sh "make publish-deb"
 }

@@ -26,13 +26,13 @@ clean:
 
 build:
 	mkdir -p $(BUILDDIR)
-	cp -ap ./bootstrap.py $(BUILDDIR)
+	cp -ap ./requirements.txt $(BUILDDIR)
 	cp -ap ./*.cfg $(BUILDDIR)
 	cd $(BUILDDIR) && virtualenv .
 	rm -f $(BUILDDIR)/buildout.cfg
 	mkdir -p $(BUILDDIR)/eggs
 	cd $(BUILDDIR) && ln -s base.cfg buildout.cfg
-	cd $(BUILDDIR) && bin/python bootstrap.py -v 2.2.1 buildout:eggs-directory=$(BUILDDIR)/eggs
+	cd $(BUILDDIR) && bin/pip install -r requirements.txt
 	cd $(BUILDDIR) && bin/buildout -c buildout.cfg buildout:eggs-directory=$(BUILDDIR)/eggs
 	echo $(DEBIANCORE)
 	touch build-stamp
